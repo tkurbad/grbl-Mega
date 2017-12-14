@@ -22,8 +22,10 @@
 #ifndef nuts_bolts_h
 #define nuts_bolts_h
 
-#define false 0
-#define true 1
+#if defined(ARDUINO) && ARDUINO < 160
+ #define false 0
+ #define true 1
+#endif
 
 #define SOME_LARGE_VALUE 1.0E+38
 
@@ -53,12 +55,16 @@
 #define clear_vector(a) memset(a, 0, sizeof(a))
 #define clear_vector_float(a) memset(a, 0.0, sizeof(float)*N_AXIS)
 // #define clear_vector_long(a) memset(a, 0.0, sizeof(long)*N_AXIS)
-#define max(a,b) (((a) > (b)) ? (a) : (b))
-#define min(a,b) (((a) < (b)) ? (a) : (b))
+#if defined(ARDUINO) && ARDUINO < 160
+ #define max(a,b) (((a) > (b)) ? (a) : (b))
+ #define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
 #define isequal_position_vector(a,b) !(memcmp(a, b, sizeof(float)*N_AXIS))
 
 // Bit field and masking macros
-#define bit(n) (1 << n)
+#if defined(ARDUINO) && ARDUINO < 160
+ #define bit(n) (1 << n)
+#endif
 #define bit_true(x,mask) (x) |= (mask)
 #define bit_false(x,mask) (x) &= ~(mask)
 #define bit_istrue(x,mask) ((x & mask) != 0)
