@@ -237,23 +237,23 @@
 
   // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
-  #define CONTROL_DDR       DDRK
-  #define CONTROL_PIN       PINK
-  #define CONTROL_PORT      PORTK
-  #define CONTROL_RESET_BIT         1  // Pin A9 - RAMPS Aux 2 Port
-  #define CONTROL_FEED_HOLD_BIT     2  // Pin A10 - RAMPS Aux 2 Port
-  #define CONTROL_CYCLE_START_BIT   2  // Pin A10 - RAMPS Aux 2 Port
-  #define CONTROL_SAFETY_DOOR_BIT   3  // MEGA2560 Pin A11 / Azteeg EXP2 Pin 2
+  #define CONTROL_DDR       DDRA
+  #define CONTROL_PIN       PINA
+  #define CONTROL_PORT      PORTA
+  #define CONTROL_RESET_BIT         1  // MEGA2560 Pin D23 (77) - Azteeg EXP1 Pin 4
+  #define CONTROL_FEED_HOLD_BIT     3  // MEGA2560 Pin D25 (75) - Azteeg EXP1 Pin 6
+  #define CONTROL_CYCLE_START_BIT   5  // MEGA2560 Pin D27 (73) - Azteeg EXP1 Pin 3
+  #define CONTROL_SAFETY_DOOR_BIT   7  // MEGA2560 Pin D29 (71) - Azteeg EXP1 Pin 5
   #define CONTROL_INT       PCIE2  // Pin change interrupt enable pin
   #define CONTROL_INT_vect  PCINT2_vect
   #define CONTROL_PCMSK     PCMSK2 // Pin change interrupt register
   #define CONTROL_MASK      ((1<<CONTROL_RESET_BIT)|(1<<CONTROL_FEED_HOLD_BIT)|(1<<CONTROL_CYCLE_START_BIT)|(1<<CONTROL_SAFETY_DOOR_BIT))
 
   // Define probe switch input pin.
-  #define PROBE_DDR       DDRK
-  #define PROBE_PIN       PINK
-  #define PROBE_PORT      PORTK
-  #define PROBE_BIT       4  // MEGA2560 Pin A12 / Azteeg X3 EXP2 Pin 1
+  #define PROBE_DDR       DDRA
+  #define PROBE_PIN       PINA
+  #define PROBE_PORT      PORTA
+  #define PROBE_BIT       0  // MEGA2560 Pin D22 (70) - Azteeg X3 EXP3 Pin 3
   #define PROBE_MASK      (1<<PROBE_BIT)
 
   // Advanced Configuration Below You should not need to touch these variables
